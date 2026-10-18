@@ -137,15 +137,6 @@ js/ayuda.js       datos del navegador en la ayuda
 - `datos` de `validarParticipante` es `null` si hay errores, para que nunca circule un `NaN`.
 - Los `console.log("... cargado")` se mantienen como evidencia del orden de carga.
 
-## 7. Uso de IA
-- Chats utilizados: **[COMPLETAR: enlaces o exportaciones]**
-- El código base fue generado por Claude a petición mía. Decisiones tomadas con ayuda de la IA:
-  - Estructura en dos capas (`logica.js` sin DOM, `app.js` con la interfaz). **[COMPLETAR: aceptado / cambiado]**
-  - `aNumero`: la IA propuso primero una expresión regular y la sustituí por un recorrido con `for...of` porque no se ha visto en clase.
-  - `validarParticipante` devuelve `datos: null` si hay errores.
-  - Mensajes de `postMessage` gestionados con `switch` sobre `datos.tipo`.
-  - **[COMPLETAR: qué revisé, qué probé y qué descarté por mi cuenta]**
-
-## 8. Evidencias de depuración
+## 7. Evidencias de depuración
 - **Breakpoint:** **[COMPLETAR: captura]** de Sources con un punto de interrupción en `validarParticipante` al enviar el formulario con edad `18abc`. Explicación: se ve `origen.edad === "18abc"` y que `aNumero` devuelve `NaN`, por lo que `errores.edad` se rellena y `valido` es `false`.
 - **Network:** **[COMPLETAR: captura]** de la pestaña Network al cargar la página: `index.html`, `estilos.css`, los tres `.js` y `panel.html` con estado 200 desde el mismo origen. Explicación: el navegador pide cada recurso con `GET` y el iframe carga `panel.html` como segundo documento.
