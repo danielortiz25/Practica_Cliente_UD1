@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestor de participantes</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script src="js/cookies.js" defer></script>
+    <script src="js/logica.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <h1>Gestor de participantes del evento</h1>
+    <p id="mensaje" role="status"></p>
+
+    <section aria-labelledby="t-alta">
+      <h2 id="t-alta">Alta de participante</h2>
+      <form id="formulario" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" autocomplete="off" /><span
+            class="error-campo"
+            id="error-nombre"
+            aria-live="polite"
+          ></span>
+        </div>
+        <div class="campo">
+          <label for="edad">Edad</label>
+          <input id="edad" inputmode="numeric" autocomplete="off" /><span
+            class="error-campo"
+            id="error-edad"
+            aria-live="polite"
+          ></span>
+        </div>
+        <div class="campo">
+          <label for="tipo">Tipo</label>
+          <select id="tipo">
+            <option value="">Elige un tipo</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="profesional">Profesional</option>
+            <option value="invitado">Invitado</option>
+          </select>
+          <span class="error-campo" id="error-tipo" aria-live="polite"></span>
+        </div>
+        <div class="campo">
+          <label for="modalidad">Modalidad</label>
+          <select id="modalidad">
+            <option value="">Elige una modalidad</option>
+            <option value="presencial">Presencial</option>
+            <option value="online">Online</option>
+          </select>
+          <span
+            class="error-campo"
+            id="error-modalidad"
+            aria-live="polite"
+          ></span>
+        </div>
+        <div class="campo">
+          <label for="experiencia"
+            >Experiencia (0 a 10, admite decimales)</label
+          >
+          <input id="experiencia" inputmode="decimal" autocomplete="off" /><span
+            class="error-campo"
+            id="error-experiencia"
+            aria-live="polite"
+          ></span>
+        </div>
+        <button type="submit">Añadir participante</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="t-lista">
+      <h2 id="t-lista">Participantes</h2>
+      <div class="filtros">
+        <label for="busqueda">Buscar por nombre</label
+        ><input id="busqueda" type="search" autocomplete="off" />
+        <label for="filtro-modalidad">Modalidad</label>
+        <select id="filtro-modalidad">
+          <option value="todas">Todas</option>
+          <option value="presencial">Presencial</option>
+          <option value="online">Online</option>
+        </select>
+      </div>
+      <p id="sin-resultados" role="status" hidden></p>
+      <div id="lista"></div>
+    </section>
+
+    <section aria-labelledby="t-est">
+      <h2 id="t-est">Estadísticas</h2>
+      <dl id="estadisticas"></dl>
+      <button id="btn-primer-menor" type="button">
+        Localizar al primer menor de edad
+      </button>
+      <p id="primer-menor" role="status"></p>
+    </section>
+
+    <section aria-labelledby="t-json">
+      <h2 id="t-json">Exportar e importar (JSON)</h2>
+      <label for="json">Colección en formato JSON</label>
+      <textarea id="json" rows="8" spellcheck="false"></textarea>
+      <button id="btn-exportar" type="button">Exportar</button>
+      <button id="btn-importar" type="button">Importar</button>
+      <p id="mensaje-json" role="status"></p>
+    </section>
+
+    <section aria-labelledby="t-panel">
+      <h2 id="t-panel">Panel del evento</h2>
+      <iframe
+        id="panel"
+        title="Panel del evento: total de inscritos, modalidades y última inscripción"
+      ></iframe>
+    </section>
+
+    <section aria-labelledby="t-pref">
+      <h2 id="t-pref">Preferencias</h2>
+      <form id="form-pref">
+        <label for="pref-tema">Tema</label>
+        <select id="pref-tema">
+          <option value="claro">Claro</option>
+          <option value="oscuro">Oscuro</option>
+        </select>
+        <label for="pref-tamano">Tamaño de letra</label>
+        <select id="pref-tamano">
+          <option value="normal">Normal</option>
+          <option value="grande">Grande</option>
+        </select>
+        <button type="submit">Guardar preferencias</button>
+        <button id="btn-restablecer" type="button">Restablecer</button>
+      </form>
+      <p id="estado-pref" role="status"></p>
+    </section>
+
+    <section aria-labelledby="t-ayuda">
+      <h2 id="t-ayuda">Ayuda</h2>
+      <button id="btn-abrir-ayuda" type="button">Abrir ayuda</button>
+      <button id="btn-cerrar-ayuda" type="button">Cerrar ayuda</button>
+      <p id="estado-ayuda" role="status"></p>
+    </section>
+  </body>
+</html>
