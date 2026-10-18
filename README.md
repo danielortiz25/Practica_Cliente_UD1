@@ -2,11 +2,11 @@
 
 Práctica UD1 de Desarrollo Web en Entorno Cliente (DWEC), curso 2026-2027. Aplicación que se ejecuta entera en el navegador con HTML, CSS y JavaScript, sin frameworks ni lógica de servidor.
 
-## 1. Cómo ejecutarla
-
 ## Enlace de CLaude
 
 https://claude.ai/share/f9dd22c7-d9dd-4dc1-a23d-46f68aa65036
+
+## 1. Cómo ejecutarla
 
 El servidor solo entrega ficheros estáticos; toda la lógica corre en el navegador. Se sirve por HTTP (no `file://`) porque el origen, las cookies y `postMessage` no son fiables con `file://`.
 
